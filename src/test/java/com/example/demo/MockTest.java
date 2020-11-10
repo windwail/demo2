@@ -20,8 +20,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc(addFilters = false)
 @WebMvcTest(
-        value = MainController.class,
-        excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = WebSecurityConfig.class)
+        value = MainController.class
+        ,excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = WebSecurityConfig.class)
 )
 public class MockTest {
 
@@ -34,7 +34,7 @@ public class MockTest {
     @Test
     public void givenEmployees_whenGetEmployees_thenReturnJsonArray() throws Exception {
 
-        given(service.check()).willReturn(true);
+        given(service.check()).willReturn("OK");
 
         mvc.perform(get("/test")
                 .contentType(MediaType.APPLICATION_JSON))

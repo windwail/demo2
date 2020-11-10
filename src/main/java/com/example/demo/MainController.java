@@ -12,7 +12,7 @@ public class MainController {
 
     @GetMapping("/test")
     String test() {
-        return checkerService.check() ? "OK" : "NOT OK";
+        return checkerService.check();
     }
 
 }
